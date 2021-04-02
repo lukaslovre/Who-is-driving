@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/css/lobbyStyle.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Who Is Driving?</title>
+  </head>
+  <body>
+    <button onclick="window.location.href = '/home'">GUMB</button>
+    <h1>Who Is Driving</h1>
+    <p id="currentUser"><%= currentUser %></p>
+    <% if(locals.users[0]){%>
+    <p id="groupName"><%= users[0].group.groupId %></p>
+    <% }%>
+    <div id="usersDiv">
+      <% if(locals.users){ %> <% for (let i = 0; i< users.length ; i++){ %> <%
+      if(users[i].username == currentUser){ %>
+      <div class="userDiv">
+        <div class="userInfoDiv">
+          <p class="userPfp">Img</p>
+          <div class="nameAndStatusDiv">
+            <p class="nameDiv"><%= users[i].username %></p>
+            <p class="statusDiv <%= users[i].group.status %>">
+              <%= users[i].group.status %>
+            </p>
+          </div>
+          <p class="percentDiv"><%= (bets[i].chance * 100).toFixed(1) %>%</p>
+        </div>
+
+        <div class="betInputDiv">
+          <p>
+            Your balance: $<span class="yourBalance"
+              ><%= users[i].group.balance %></span
+            >
+          </p>
+          <div class="forma">
+            <input
+              type="number"
+              name="betAmount"
+              id="betAmount"
+              placeholder="Bet amount"
+            />
+            <button onclick="bet(betAmount.value)" class="betBtn">bet</button>
+          </div>
+        </div>
+      </div>
+      <% } else{%>
+      <div class="userDiv">
+        <div class="userInfoDiv">
+          <p class="userPfp">Img</p>
+          <div class="nameAndStatusDiv">
+            <p class="nameDiv"><%= users[i].username %></p>
+            <p class="statusDiv <%= users[i].group.status %>">
+              <%= users[i].group.status %>
+            </p>
+          </div>
+          <p class="percentDiv"><%= (bets[i].chance * 100).toFixed(1) %>%</p>
+        </div>
+      </div>
+      <% }%> <% }%> <% }%>
+    </div>
+    <button
+      id="changeStatusBtn"
+      class="ready"
+      onclick="changePersonalState(this)"
+    >
+      ready
+    </button>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/lobbyScript.js"></script>
+  </body>
+</html>

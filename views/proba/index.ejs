@@ -1,0 +1,23 @@
+<script>
+  const token = localStorage.getItem("token");
+  if (!token) {
+    window.location.href = "/login";
+  }
+  console.log(token);
+
+  async function sendToken(adresa) {
+    const options = {
+      method: "POST",
+      headers: {
+        //"Content-Type": "application/json",
+        "auth-token": token,
+      },
+    };
+    const response = await fetch(adresa, options);
+
+    if (response.status !== 200) {
+      window.location.href = "/login";
+    }
+  }
+  sendToken("/home-p");
+</script>

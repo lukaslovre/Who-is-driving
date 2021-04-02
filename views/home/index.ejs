@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/homeStyle.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img src="/images/obama.jpg" alt="profile" />
+    <h1>Group selector</h1>
+    <div class="groupsDiv">
+      <% if(locals.groups){ %> <% for (let i = 0; i< groups.length ; i++){ %>
+      <div
+        class="group"
+        onclick="window.location.href=`/lobby/<%= groups[i].groupId %>`"
+      >
+        <p class="groupName"><%= groups[i].groupId %></p>
+        <div class="groupInfoDiv">
+          <p class="numberMembers"><%= numOfMembers[i] %> members</p>
+          <p class="credits">$<%= groups[i].balance %></p>
+        </div>
+      </div>
+      <% }%> <% }%>
+    </div>
+    <button class="joinGroupBtn" onclick="window.location.href = '/join-group'">
+      join group
+    </button>
+    <form action="/logout?_method=DELETE" method="post">
+      <input type="submit" value="Log out" />
+    </form>
+  </body>
+</html>

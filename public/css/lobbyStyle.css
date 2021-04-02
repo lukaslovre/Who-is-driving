@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #fbfbfb;
+  font-family: "Montserrat", sans-serif;
+}
+h1 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #090909;
+  margin-top: 2.25rem;
+  margin-bottom: 3rem;
+}
+#currentUser {
+  display: none;
+}
+
+#groupName {
+  margin-bottom: 1.25rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #242424;
+}
+
+#usersDiv {
+  padding: 1rem 0.5rem;
+  margin: 0 auto;
+  width: 100%;
+  max-height: 61vh;
+  overflow-y: scroll;
+}
+
+/* Pojedini user, sve*/
+.userDiv {
+  transition: opacity 600ms;
+  margin: 0 auto;
+  width: 85%;
+  padding: 10px;
+  margin-top: 2rem;
+  background-color: #ffffff;
+  box-shadow: 6px 6px 16px #d7d7d7;
+  border-radius: 1.5rem;
+}
+.userDiv:first-child {
+  margin-top: 0px;
+}
+/* Gornja polovica*/
+.userInfoDiv {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.userPfp {
+  width: 64px;
+  border-radius: 10rem;
+}
+.nameAndStatusDiv {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.nameDiv {
+  font-size: 1.375rem;
+  color: #242424;
+}
+.statusDiv {
+  width: fit-content;
+  padding: 0.125rem 0.25rem;
+  border-radius: 10rem;
+  color: #112a46;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.ready {
+  background-color: #40f99b;
+}
+.unready {
+  background-color: #e85d75;
+}
+.percentDiv {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #070707;
+}
+/* Donja polovica*/
+.betInputDiv {
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  color: #242424;
+  font-size: 1.25rem;
+}
+.forma {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+#betAmount {
+  padding: 0.5rem 0.75rem;
+  width: 40%;
+  outline: none;
+  border-radius: 10rem;
+  border: 2px solid #242424;
+}
+.betBtn {
+  margin-left: 1rem;
+  padding: 0 1rem;
+  background-color: #40f99b;
+  border-radius: 10rem;
+  border: none;
+  outline: none;
+
+  color: #112a46;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/*  */
+
+#changeStatusBtn {
+  position: absolute;
+  bottom: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 0.5em 1em;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #112a46;
+  border: none;
+  outline: none;
+  border-radius: 10rem;
+  cursor: pointer;
+}
