@@ -4,7 +4,7 @@
   "description": "A web aplication which randomly determines who will drive, with a little twist",
   "main": "server.js",
   "scripts": {
-    "start": "node server",
+    "start": "node server.js",
     "dev": "nodemon server"
   },
   "keywords": [
