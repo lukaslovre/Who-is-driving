@@ -14,7 +14,6 @@
     <title>Who Is Driving?</title>
   </head>
   <body>
-    <button onclick="window.location.href = '/home'">GUMB</button>
     <h1>Who Is Driving</h1>
     <p id="currentUser"><%= currentUser %></p>
     <% if(locals.users[0]){%>
@@ -25,7 +24,7 @@
       if(users[i].username == currentUser){ %>
       <div class="userDiv">
         <div class="userInfoDiv">
-          <p class="userPfp">Img</p>
+          <img class="userPfp" src="/images/obama.jpg" alt="profilePhoto" />
           <div class="nameAndStatusDiv">
             <p class="nameDiv"><%= users[i].username %></p>
             <p class="statusDiv <%= users[i].group.status %>">
@@ -55,7 +54,7 @@
       <% } else{%>
       <div class="userDiv">
         <div class="userInfoDiv">
-          <p class="userPfp">Img</p>
+          <img class="userPfp" src="/images/obama.jpg" alt="profilePhoto" />
           <div class="nameAndStatusDiv">
             <p class="nameDiv"><%= users[i].username %></p>
             <p class="statusDiv <%= users[i].group.status %>">

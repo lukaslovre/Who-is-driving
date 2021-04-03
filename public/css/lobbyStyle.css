@@ -12,7 +12,7 @@ h1 {
   font-weight: 700;
   font-size: 2.5rem;
   color: #090909;
-  margin-top: 2.25rem;
+  margin-top: 2rem;
   margin-bottom: 3rem;
 }
 #currentUser {
@@ -39,8 +39,8 @@ h1 {
 .userDiv {
   transition: opacity 600ms;
   margin: 0 auto;
-  width: 85%;
-  padding: 10px;
+  width: 90%;
+  padding: 0.625rem;
   margin-top: 2rem;
   background-color: #ffffff;
   box-shadow: 6px 6px 16px #d7d7d7;
@@ -49,6 +49,7 @@ h1 {
 .userDiv:first-child {
   margin-top: 0px;
 }
+
 /* Gornja polovica*/
 .userInfoDiv {
   height: 80px;
@@ -57,8 +58,9 @@ h1 {
   justify-content: space-between;
 }
 .userPfp {
-  width: 64px;
+  width: 3rem;
   border-radius: 10rem;
+  margin-right: 1rem;
 }
 .nameAndStatusDiv {
   width: 100%;
@@ -68,6 +70,7 @@ h1 {
   justify-content: space-between;
 }
 .nameDiv {
+  /* word-wrap: break-word;*/
   font-size: 1.375rem;
   color: #242424;
 }
@@ -96,7 +99,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
 
   color: #242424;
   font-size: 1.25rem;
@@ -124,9 +127,8 @@ h1 {
   color: #112a46;
   font-size: 1.5rem;
   font-weight: 700;
+  cursor: pointer;
 }
-
-/*  */
 
 #changeStatusBtn {
   position: absolute;

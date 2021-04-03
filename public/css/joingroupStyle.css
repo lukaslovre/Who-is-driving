@@ -10,15 +10,16 @@ body {
 }
 .main {
   width: 90%;
-  margin: 16rem auto;
+  margin: auto;
+  margin-top: 12rem;
   padding: 1rem;
 
-  background: #eff7ff;
+  background-color: #eff7ff;
   box-shadow: 6px 6px 16px rgba(0, 0, 0, 0.2);
-  border-radius: 20px;
+  border-radius: 1.5rem;
 }
 h1 {
-  font-size: 1.5rem;
+  font-size: 1.625rem;
   color: #0b1b2d;
   text-align: center;
   margin: 1rem 0 4rem 0;
@@ -40,7 +41,7 @@ label {
   border-radius: 20px;
   border: none;
   outline: none;
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 600;
   padding: 0.5rem 2rem;
   color: #0b1b2d;
