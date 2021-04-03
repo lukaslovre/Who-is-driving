@@ -72,6 +72,7 @@ app.get("/register", checkNotAuthenticated, (req, res) => {
 });
 app.post("/register", checkNotAuthenticated, (req, res) => {
   // Provjera upisanih podataka
+
   if (!req.body.username) {
     res.render("register", { err: "Nije uneseno ime" });
   } else if (!req.body.password) {
@@ -95,7 +96,7 @@ app.post("/register", checkNotAuthenticated, (req, res) => {
           });
           res.redirect("/login");
         } else {
-          res.render("register", { err: "Ovaj username je zauzet" });
+          res.render("register", { err: "Username already taken!" });
         }
       }
     );
@@ -164,7 +165,7 @@ app.post("/joinGroupWithId", checkAuthenticated, (req, res) => {
       groupId: groupID,
       groupName: "grupaTest2",
       balance: 5000,
-      bet: 0,
+      bet: 500,
       status: "unready",
     };
     groups.push(newGroup);

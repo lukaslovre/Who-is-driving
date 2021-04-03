@@ -18,17 +18,18 @@
       <% if(locals.err){ %>
       <span id="ErrorMsg"> <%= err %> </span>
       <% }%>
-      <form action="/register" method="post">
+      <form action="/register" method="post" autocomplete="off">
         <div class="usernameInput">
           <label for="username">Username</label>
           <input type="text" name="username" id="username" />
         </div>
         <div class="passwordInput">
           <label for="password">Password</label>
-          <input type="text" name="password" id="password" />
+          <input type="password" name="password" id="password" />
         </div>
         <input type="submit" value="Submit" />
       </form>
+      <a href="/login">Already have an account? Login</a>
     </div>
   </body>
 </html>

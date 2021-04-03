@@ -18,9 +18,8 @@
       <form action="/joinGroupWithId" method="post">
         <div class="idInput">
           <label for="groupId">GROUP ID:</label>
-          <input type="text" name="groupId" id="groupId" />
+          <input type="text" name="groupId" id="groupId" autocomplete="off" />
         </div>
-        <p><%= user.username %></p>
         <input type="submit" value="JOIN GROUP" />
       </form>
     </div>
