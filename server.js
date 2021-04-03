@@ -400,5 +400,5 @@ function checkNotAuthenticated(req, res, next) {
 }
 
 // open server
-const PORT = 3000 || process.env.PORT;
+const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => console.log(`listening at Port ${PORT}`));
