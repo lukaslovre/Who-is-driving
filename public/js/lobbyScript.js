@@ -41,7 +41,7 @@ socket.on("connect", () => {
   socket.emit("connectToRoom", groupIdFromUrl);
 });
 
-// Mjenja ready/unready stanja korisnika
+// Mjenja ready/unready stanja korisnika - kada primi
 socket.on("updateValues", (users, chosenDriver) => {
   console.log("Update values triggered");
   users.forEach((user) => {
@@ -95,16 +95,33 @@ function bet(betAmount) {
 }
 
 // mjenja postotke
-socket.on("betValues", (betData, balance) => {
-  //document.querySelector(".yourBalance").innerHTML = balance;
+socket.on("betValues", (betData, balance, userThatBetted) => {
   betData.forEach((user) => {
     for (let i = 0; i < userDivs.length; i++) {
       let usernameFromDiv = userDivs[i].querySelector(".nameDiv").innerHTML;
       if (usernameFromDiv === user.username) {
         userDivs[i].querySelector(".percentDiv").innerHTML =
           (user.chance * 100).toFixed(1) + "%";
+        if (currentUser == userThatBetted) {
+          document.getElementById("betAmount").value = "";
+        }
       }
     }
   });
-  document.getElementById("betAmount").value = "";
 });
+
+// izlazi iz trenutne grupe
+function leaveCurrentGroup() {
+  const data = {
+    username: currentUser,
+    groupId: groupIdFromUrl,
+  };
+  fetch("/leaveGroup", {
+    method: "DELETE",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-type": "application/json",
+    },
+  });
+  window.location.href = "/home";
+}

@@ -59,6 +59,7 @@ h1 {
 
 .joinGroupBtn {
   display: block;
+  cursor: pointer;
   margin: auto;
   background: #acc8e5;
   margin-top: 3rem;

@@ -158,13 +158,22 @@ app.get("/join-group", checkAuthenticated, (req, res) => {
 
 app.post("/joinGroupWithId", checkAuthenticated, (req, res) => {
   const groupID = req.body.groupId;
+  // provjerava dali ima razmaka u rijeci:
+  if (/\s/g.test(groupID)) {
+    res.redirect("join-group");
+    return;
+  }
   // provjeriti id u bazi i naci sve o grupi:
   database.findOne({ username: req.user.username }, function (err, docs) {
     let groups = docs.group;
+    for (let i = 0; i < groups.length; i++) {
+      if (groups[i].groupId == groupID) return;
+    }
+
     let newGroup = {
       groupId: groupID,
       groupName: "grupaTest2",
-      balance: 5000,
+      balance: 0,
       bet: 500,
       status: "unready",
     };
@@ -181,6 +190,26 @@ app.post("/joinGroupWithId", checkAuthenticated, (req, res) => {
     );
   });
   res.redirect("/home");
+});
+
+//izlaz iz grupe
+app.delete("/leaveGroup", checkAuthenticated, (req, res) => {
+  console.log(req.body);
+  database.findOne({ username: req.body.username }, function (err, docs) {
+    for (let i = 0; i < docs.group.length; i++) {
+      if (docs.group[i].groupId == req.body.groupId) {
+        docs.group.splice(i, 1);
+        break;
+      }
+    }
+
+    database.update(
+      { username: req.body.username },
+      { $set: { group: docs.group } },
+      {},
+      function (err, numReplaced) {}
+    );
+  });
 });
 
 //Lobby
@@ -376,7 +405,7 @@ io.on("connection", (socket) => {
           }
         }
 
-        io.to(groupIdFromUrl).emit("betValues", bets, balance);
+        io.to(groupIdFromUrl).emit("betValues", bets, balance, currentUser);
       });
     });
   });

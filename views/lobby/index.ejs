@@ -14,10 +14,18 @@
     <title>Who Is Driving?</title>
   </head>
   <body>
-    <h1>Who Is Driving</h1>
+    <h1><a href="/home" class="backToHomeHref"> Who Is Driving</a></h1>
     <p id="currentUser"><%= currentUser %></p>
     <% if(locals.users[0]){%>
-    <p id="groupName"><%= users[0].group.groupId %></p>
+    <div class="header">
+      <img
+        src="/images/leaveGroup.svg"
+        alt="leave group"
+        id="leaveGroupBtn"
+        onclick="leaveCurrentGroup()"
+      />
+      <p id="groupName"><%= users[0].group.groupId %></p>
+    </div>
     <% }%>
     <div id="usersDiv">
       <% if(locals.users){ %> <% for (let i = 0; i< users.length ; i++){ %> <%
